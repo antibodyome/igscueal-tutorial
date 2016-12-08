@@ -15,14 +15,13 @@ make MPI
 sudo make install
 ```
 
-On OSX, you may need to specify use of gcc rather than clang as the compiler. gcc5 and openmpi can be installed using Homebrew.
+On OSX, openmpi can be installed using Homebrew. You'll need either XCode or gcc (via Homebrew) to install.
 
 ```bash
-brew install gcc5
 brew install openmpi
 ```
 
-Specifying the compiler requires a couple of extra flags.
+You may have to specify the compiler, which requires a couple of extra flags.
 
 ```bash
 cmake -DCMAKE_C_COMPILER=gcc-5 -DCMAKE_CXX_COMPILER=g++-5
@@ -86,11 +85,11 @@ You'll then get something like the following.
 Next, you'll get two prompts for output files.
 
 ```
-Save main screening results to (`igscueal/v2/IgSCUEAL/scripts/`) ../test/simple_indels_80_10000_igscueal.txt
+Save main screening results to (`igscueal/v2/IgSCUEAL/scripts/`) ../results/simple_indels_80_10000_igscueal.tsv
 ```
 
 ```
-Save alternative rearrangements to: (`igscueal/v2/IgSCUEAL/scripts/`) ../test/simple_indels_80_10000_igscueal_rearrangements.txt
+Save alternative rearrangements to: (`igscueal/v2/IgSCUEAL/scripts/`) ../results/simple_indels_80_10000_igscueal.alt.tsv
 ```
 
 The progress will be spooled to the terminal, and should look something like this:
@@ -99,7 +98,19 @@ The progress will be spooled to the terminal, and should look something like thi
 Screening read 9996/10000. Elapsed time : 00:25:10. ETA : 00:00:00.  6.62 sequences/ second.
 ```
 
-## Postprocessing
+For convenience, a shell script is included, `igscueal`, which, if added to the path, allows specification of the input filename, the output filename, the alternative rearrangements filename, and the number of processes from the command line, rather than doing so interactively.
+
+```bash
+igscueal -i test/simple_indels_80_10000.fas -o results/simple_indels_80_10000_igscueal.tsv -r results/simple_indels_80_10000_igscueal.alt.tsv -p 12
+```
+
+## Post-processing
+
+A number of Python scripts are included for post-processing of IgSCUEAL output, in the `python` subdirectory.
+
+### Accuracy on simulated data
+
+The script `TabulateSimulations.py` assesses the accuracy of IgSCUEAL using simulated data, which are available in the `test` subdirectory. These were generated using [igh-simulation](https://github.com/antibodyome/igh-simulation).
 
 ### IgPostProcessor
 
@@ -158,3 +169,5 @@ optional arguments:
 
 
 ## Using your own references
+
+Currently, v2 only contains references for human IGH sequences. Documentation on how to add your own data will be forthcoming.
