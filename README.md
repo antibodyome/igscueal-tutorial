@@ -73,35 +73,35 @@ Select a sequence alignment file (`igscueal/v2/IgSCUEAL/scripts/`)
 Enter the path of the sequence alignment file. Test datasets are included in the repository, in the `test` subdirectory. Paths are relative to the script, so you can type:
 
 ```
-../test/simple_indels_80_10000.fas
+../test/test.fas
 ```
 
 You'll then get something like the following.
 
 ```
-### Loaded 10000 sequences from ...
+### Loaded 100 sequences from ...
 ```
 
 Next, you'll get two prompts for output files.
 
 ```
-Save main screening results to (`igscueal/v2/IgSCUEAL/scripts/`) ../results/simple_indels_80_10000_igscueal.tsv
+Save main screening results to (`igscueal/v2/IgSCUEAL/scripts/`) ../results/test_igscueal.tsv
 ```
 
 ```
-Save alternative rearrangements to: (`igscueal/v2/IgSCUEAL/scripts/`) ../results/simple_indels_80_10000_igscueal.alt.tsv
+Save alternative rearrangements to: (`igscueal/v2/IgSCUEAL/scripts/`) ../results/test_igscueal.alt.tsv
 ```
 
 The progress will be spooled to the terminal, and should look something like this:
 
 ```
-Screening read 9996/10000. Elapsed time : 00:25:10. ETA : 00:00:00.  6.62 sequences/ second.
+Screened 100/100 sequences. Elapsed time : 00:00:43. ETA : 00:00:00.  2.27 sequences/ second
 ```
 
 For convenience, a shell script is included, `igscueal`, which, if added to the path, allows specification of the input filename, the output filename, the alternative rearrangements filename, and the number of processes from the command line, rather than doing so interactively.
 
 ```bash
-igscueal -i test/simple_indels_80_10000.fas -o results/simple_indels_80_10000_igscueal.tsv -r results/simple_indels_80_10000_igscueal.alt.tsv -p 12
+igscueal -i test/test.fas -o results/test_igscueal.tsv -r results/test_igscueal.alt.tsv -p 12
 ```
 
 ## Post-processing
@@ -111,6 +111,49 @@ A number of Python scripts are included for post-processing of IgSCUEAL output, 
 ### Accuracy on simulated data
 
 The script `TabulateSimulations.py` assesses the accuracy of IgSCUEAL using simulated data, which are available in the `test` subdirectory. These were generated using [igh-simulation](https://github.com/antibodyome/igh-simulation).
+
+```
+usage: TabulateSimulations.py [-h] -i IGSCUEAL -r REARRANGEMENT [-w] [-e] [-l]
+
+Parse IgSCUEAL
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i IGSCUEAL, --igscueal IGSCUEAL
+                        IgSCUEAL main TSV file
+  -r REARRANGEMENT, --rearrangement REARRANGEMENT
+                        IgSCUEAL rearrangement TSV file
+  -w, --weak            Report weak matches
+  -e, --errors          Report mis-matches
+  -l, --latex           Output results in a LaTeX friendly format
+```
+
+Example:
+
+```
+python3 python/TabulateSimulations.py -i results/test_igscueal.tsv -r results/test_igscueal.alt.tsv
+```
+
+```
+Results for V
+	Correct             75 (75 %)
+	Alternative         25 (25 %)
+	Mismatch (allele)   0 (0 %)
+	Mismatch (gene)     0 (0 %)
+	No result           0 (0 %)
+Results for D
+	Correct             0 (0 %)
+	Alternative         0 (0 %)
+	Mismatch (allele)   0 (0 %)
+	Mismatch (gene)     100 (100 %)
+	No result           0 (0 %)
+Results for J
+	Correct             77 (77 %)
+	Alternative         22 (22 %)
+	Mismatch (allele)   0 (0 %)
+	Mismatch (gene)     1 (1 %)
+	No result           0 (0 %)
+```
 
 ### IgPostProcessor
 
@@ -167,6 +210,11 @@ optional arguments:
                         assignment by also considering inverted regions
 ```
 
+Example:
+
+```bash
+python3 python/IgPostProcessor.py -i results/simple_indels_80_10000_igscueal.tsv -s 0.01 -p CDR3_AA '^([^X\?]+|[^X\?]*\??[^X\?]*)$' -c JUNCTION_AA g 7 -r --coverage FW1,CDR1,FW2,CDR2,FW3,CDR3,J,CH > results/simple_indels_80_10000_igscueal.json
+```
 
 ## Using your own references
 
