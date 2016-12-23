@@ -98,12 +98,6 @@ The progress will be spooled to the terminal, and should look something like thi
 Screened 100/100 sequences. Elapsed time : 00:00:43. ETA : 00:00:00.  2.27 sequences/ second
 ```
 
-For convenience, a shell script is included, `igscueal`, which, if added to the path, allows specification of the input filename, the output filename, the alternative rearrangements filename, and the number of processes from the command line, rather than doing so interactively.
-
-```bash
-igscueal -i test/test.fas -o results/test_igscueal.tsv -r results/test_igscueal.alt.tsv -p 12
-```
-
 ## Post-processing
 
 A number of Python scripts are included for post-processing of IgSCUEAL output, in the `python` subdirectory.
@@ -142,10 +136,10 @@ Results for V
 	Mismatch (gene)     0 (0 %)
 	No result           0 (0 %)
 Results for D
-	Correct             0 (0 %)
-	Alternative         0 (0 %)
-	Mismatch (allele)   0 (0 %)
-	Mismatch (gene)     100 (100 %)
+	Correct             28 (28 %)
+	Alternative         3 (3 %)
+	Mismatch (allele)   3 (3 %)
+	Mismatch (gene)     66 (66 %)
 	No result           0 (0 %)
 Results for J
 	Correct             77 (77 %)
@@ -210,11 +204,50 @@ optional arguments:
                         assignment by also considering inverted regions
 ```
 
-Example:
+Example 1:
 
 ```bash
 python3 python/IgPostProcessor.py -i results/simple_indels_80_10000_igscueal.tsv -s 0.01 -p CDR3_AA '^([^X\?]+|[^X\?]*\??[^X\?]*)$' -c JUNCTION_AA g 7 -r --coverage FW1,CDR1,FW2,CDR2,FW3,CDR3,J,CH > results/simple_indels_80_10000_igscueal.json
 ```
+
+This will generate a JSON file for `results/simple_indels_80_10000_igscueal.tsv`, with a minimum support of 0.01 (`-s 0.01`), with a CDR3 region that matches the regular expression `^([^X\?]+|[^X\?]*\??[^X\?]*)$`, with a junction of greater than 8 amino acids (`-c JUNCTION_AA g 7`), summarising all reads by V/D/J usage (`-r`), counting how many reads map to a region.
+
+Example 2:
+
+```bash
+python3 python/IgPostProcessor.py -i results/simple_indels_80_10000_igscueal.tsv -s 0.01 -p CDR3_AA '^([^X\?]+|[^X\?]*\??[^X\?]*)$' -c JUNCTION_AA g 7 -o json 'Mapped Read' 'Best Rearrangement' JUNCTION > results/simple_indels_80_10000_igscueal.clusters.json
+```
+
+As above, but now output is a JSON file comprising of the mapped read, the best rearrangement, and the junction for each read (`-o json 'Mapped Read' 'Best Rearrangement' JUNCTION`).
+
+### ClonotypeProcessor.py
+
+```bash
+usage: ClonotypeProcessor.py [-h] -i [INPUT] -o [OUTPUT]
+
+Process clonotypes from a binned JSON.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i [INPUT], --input [INPUT]
+                        The input JSON file
+  -o [OUTPUT], --output [OUTPUT]
+                        The output JSON file
+```
+
+This takes the output from `IgPostProcessor` (see example 2 above) and generates clonotypes e.g.
+
+```bash
+python3 python/ClonotypeProcessor.py -i results/simple_indels_80_10000_igscueal.clusters.json -o results/simple_indels_80_10000_igscueal.reduced.json
+```
+
+This can be further processed using `IgPostProcessor`.
+
+```bash
+python3 python/IgPostProcessor.py -i results/simple_indels_80_10000_igscueal.tsv -s 0.01 -p CDR3_AA '^([^X\?]+|[^X\?]*\??[^X\?]*)$' -c JUNCTION_AA g 7 -x results/simple_indels_80_10000_igscueal.reduced.json -r --coverage FW1,CDR1,FW2,CDR2,FW3,CDR3,J,CH > results/simple_indels_80_10000_igscueal.clonotypes.json
+```
+
+Through specifying `-x results/simple_indels_80_10000_igscueal.reduced.json` only sequences that represent unique clonotypes are kept.
 
 ## Using your own references
 
