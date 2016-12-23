@@ -125,27 +125,27 @@ optional arguments:
 Example:
 
 ```
-python3 python/TabulateSimulations.py -i results/test_igscueal.tsv -r results/test_igscueal.alt.tsv
+python3 python/TabulateSimulations.py -i results/simple_indels_80_10000_igscueal.tsv -r results/simple_indels_80_10000_igscueal.alt.tsv
 ```
 
 ```
 Results for V
-	Correct             75 (75 %)
-	Alternative         25 (25 %)
-	Mismatch (allele)   0 (0 %)
-	Mismatch (gene)     0 (0 %)
+	Correct             8062 (80.6 %)
+	Alternative         1920 (19.2 %)
+	Mismatch (allele)   15 (0.15 %)
+	Mismatch (gene)     3 (0.03 %)
 	No result           0 (0 %)
 Results for D
-	Correct             28 (28 %)
-	Alternative         3 (3 %)
-	Mismatch (allele)   3 (3 %)
-	Mismatch (gene)     66 (66 %)
+	Correct             2795 (27.9 %)
+	Alternative         641 (6.41 %)
+	Mismatch (allele)   172 (1.72 %)
+	Mismatch (gene)     6379 (63.8 %)
 	No result           0 (0 %)
 Results for J
-	Correct             77 (77 %)
-	Alternative         22 (22 %)
-	Mismatch (allele)   0 (0 %)
-	Mismatch (gene)     1 (1 %)
+	Correct             7402 (74 %)
+	Alternative         2449 (24.5 %)
+	Mismatch (allele)   11 (0.11 %)
+	Mismatch (gene)     125 (1.25 %)
 	No result           0 (0 %)
 ```
 
