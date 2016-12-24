@@ -126,6 +126,55 @@ python3 python/TabulateSimulations.py -i results/simple_rearrangements.tsv -r re
 
 ### Simple rearrangements
 
+IgSCUEAL2:
+
+```bash
+$ python3 python/TabulateSimulations.py -i results/simple_rearrangements_igscueal.tsv -r results/simple_rearrangements_igscueal.alt.tsv
+Results for V
+	Correct             12060 (100 %)
+	Alternative         0 (0 %)
+	Mismatch (allele)   0 (0 %)
+	Mismatch (gene)     0 (0 %)
+	No result           0 (0 %)
+Results for D
+	Correct             11859 (98.3 %)
+	Alternative         0 (0 %)
+	Mismatch (allele)   0 (0 %)
+	Mismatch (gene)     201 (1.67 %)
+	No result           0 (0 %)
+Results for J
+	Correct             11323 (93.9 %)
+	Alternative         725 (6.01 %)
+	Mismatch (allele)   12 (0.0995 %)
+	Mismatch (gene)     0 (0 %)
+	No result           0 (0 %)
+```
+
+IgSCUEAL1:
+
+```bash
+$ python3 python/TabulateSimulations.py -i results/simple_rearrangements_igscueal1.tsv -r results/simple_rearrangements_igscueal1.alt.tsv
+Results for V
+	Correct             11135 (92.3 %)
+	Alternative         916 (7.6 %)
+	Mismatch (allele)   0 (0 %)
+	Mismatch (gene)     9 (0.0746 %)
+	No result           0 (0 %)
+Results for D
+	Correct             11713 (97.1 %)
+	Alternative         0 (0 %)
+	Mismatch (allele)   12 (0.0995 %)
+	Mismatch (gene)     335 (2.78 %)
+	No result           0 (0 %)
+Results for J
+	Correct             12020 (99.7 %)
+	Alternative         39 (0.323 %)
+	Mismatch (allele)   1 (0.00829 %)
+	Mismatch (gene)     0 (0 %)
+	No result           0 (0 %)
+
+```
+
 ## Postprocessing
 
 ### IgPostProcessor
