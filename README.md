@@ -175,6 +175,160 @@ Results for J
 
 ```
 
+### Simulations with insertions/deletions
+
+IgSCUEAL2:
+
+```bash
+$ python3 python/TabulateSimulations.py -i results/simple_indels_10000_igscueal.tsv -r results/simple_indels_10000_igscueal.alt.tsv
+Results for V
+	Correct             9902 (99 %)
+	Alternative         93 (0.93 %)
+	Mismatch (allele)   5 (0.05 %)
+	Mismatch (gene)     0 (0 %)
+	No result           0 (0 %)
+Results for D
+	Correct             6597 (66 %)
+	Alternative         399 (3.99 %)
+	Mismatch (allele)   151 (1.51 %)
+	Mismatch (gene)     2853 (28.5 %)
+	No result           0 (0 %)
+Results for J
+	Correct             9374 (93.7 %)
+	Alternative         580 (5.8 %)
+	Mismatch (allele)   9 (0.09 %)
+	Mismatch (gene)     37 (0.37 %)
+	No result           0 (0 %)
+```
+
+IgSCUEAL1:
+
+```bash
+$ python3 python/TabulateSimulations.py -i results/simple_indels_10000_igscueal1.tsv -r results/simple_indels_10000_igscueal1.alt.tsv
+Results for V
+	Correct             9499 (95 %)
+	Alternative         495 (4.95 %)
+	Mismatch (allele)   5 (0.05 %)
+	Mismatch (gene)     1 (0.01 %)
+	No result           0 (0 %)
+Results for D
+	Correct             6605 (66 %)
+	Alternative         396 (3.96 %)
+	Mismatch (allele)   148 (1.48 %)
+	Mismatch (gene)     2851 (28.5 %)
+	No result           0 (0 %)
+Results for J
+	Correct             9628 (96.3 %)
+	Alternative         341 (3.41 %)
+	Mismatch (allele)   3 (0.03 %)
+	Mismatch (gene)     28 (0.28 %)
+	No result           0 (0 %)
+```
+
+### Simulations with 40 mutations/sequence
+
+IgSCUEAL2:
+
+```bash
+$ python3 python/TabulateSimulations.py -i results/simple_indels_40_10000_igscueal.tsv -r results/simple_indels_40_10000_igscueal.alt.tsv
+Results for V
+	Correct             9044 (90.4 %)
+	Alternative         947 (9.47 %)
+	Mismatch (allele)   8 (0.08 %)
+	Mismatch (gene)     1 (0.01 %)
+	No result           0 (0 %)
+Results for D
+	Correct             4846 (48.5 %)
+	Alternative         634 (6.34 %)
+	Mismatch (allele)   170 (1.7 %)
+	Mismatch (gene)     4350 (43.5 %)
+	No result           0 (0 %)
+Results for J
+	Correct             8312 (83.1 %)
+	Alternative         1627 (16.3 %)
+	Mismatch (allele)   15 (0.15 %)
+	Mismatch (gene)     46 (0.46 %)
+	No result           0 (0 %)
+```
+
+IgSCUEAL1:
+
+```bash
+$ python3 python/TabulateSimulations.py -i results/simple_indels_40_10000_igscueal1.tsv -r results/simple_indels_40_10000_igscueal1.alt.tsv
+Results for V
+	Correct             8709 (87.1 %)
+	Alternative         1248 (12.5 %)
+	Mismatch (allele)   25 (0.25 %)
+	Mismatch (gene)     18 (0.18 %)
+	No result           0 (0 %)
+Results for D
+	Correct             4012 (40.1 %)
+	Alternative         683 (6.83 %)
+	Mismatch (allele)   233 (2.33 %)
+	Mismatch (gene)     5072 (50.7 %)
+	No result           0 (0 %)
+Results for J
+	Correct             8323 (83.2 %)
+	Alternative         1550 (15.5 %)
+	Mismatch (allele)   50 (0.5 %)
+	Mismatch (gene)     77 (0.77 %)
+	No result           0 (0 %)
+
+```
+
+### Simulations with 80 mutations/sequence
+
+IgSCUEAL2:
+
+```bash
+$ python3 python/TabulateSimulations.py -i results/simple_indels_80_10000_igscueal.tsv -r results/simple_indels_80_10000_igscueal.alt.tsv
+Results for V
+	Correct             8062 (80.6 %)
+	Alternative         1920 (19.2 %)
+	Mismatch (allele)   15 (0.15 %)
+	Mismatch (gene)     3 (0.03 %)
+	No result           0 (0 %)
+Results for D
+	Correct             2795 (27.9 %)
+	Alternative         641 (6.41 %)
+	Mismatch (allele)   172 (1.72 %)
+	Mismatch (gene)     6379 (63.8 %)
+	No result           0 (0 %)
+Results for J
+	Correct             7402 (74 %)
+	Alternative         2449 (24.5 %)
+	Mismatch (allele)   11 (0.11 %)
+	Mismatch (gene)     125 (1.25 %)
+	No result           0 (0 %)
+```
+
+IgSCUEAL1:
+
+```bash
+$ python3 python/TabulateSimulations.py -i results/simple_indels_80_10000_igscueal1.tsv -r results/simple_indels_80_10000_igscueal1.alt.tsv 
+Results for V
+	Correct             7811 (78.1 %)
+	Alternative         2080 (20.8 %)
+	Mismatch (allele)   48 (0.48 %)
+	Mismatch (gene)     61 (0.61 %)
+	No result           0 (0 %)
+Results for D
+	Correct             2095 (20.9 %)
+	Alternative         568 (5.68 %)
+	Mismatch (allele)   233 (2.33 %)
+	Mismatch (gene)     7084 (70.8 %)
+	No result           0 (0 %)
+Results for J
+	Correct             7147 (71.5 %)
+	Alternative         2515 (25.1 %)
+	Mismatch (allele)   83 (0.83 %)
+	Mismatch (gene)     235 (2.35 %)
+	No result           0 (0 %)
+
+```
+
+
+
 ## Postprocessing
 
 ### IgPostProcessor
