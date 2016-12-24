@@ -98,11 +98,7 @@ The progress will be spooled to the terminal, and should look something like thi
 Screened 100/100 sequences. Elapsed time : 00:00:43. ETA : 00:00:00.  2.27 sequences/ second
 ```
 
-## Post-processing
-
-A number of Python scripts are included for post-processing of IgSCUEAL output, in the `python` subdirectory.
-
-### Accuracy on simulated data
+## Accuracy on simulated data
 
 The script `TabulateSimulations.py` assesses the accuracy of IgSCUEAL using simulated data, which are available in the `test` subdirectory. These were generated using [igh-simulation](https://github.com/antibodyome/igh-simulation).
 
@@ -122,32 +118,15 @@ optional arguments:
   -l, --latex           Output results in a LaTeX friendly format
 ```
 
-Example:
+e.g.
 
 ```
-python3 python/TabulateSimulations.py -i results/simple_indels_80_10000_igscueal.tsv -r results/simple_indels_80_10000_igscueal.alt.tsv
+python3 python/TabulateSimulations.py -i results/simple_rearrangements.tsv -r results/simple_rearrangements.alt.tsv
 ```
 
-```
-Results for V
-	Correct             8062 (80.6 %)
-	Alternative         1920 (19.2 %)
-	Mismatch (allele)   15 (0.15 %)
-	Mismatch (gene)     3 (0.03 %)
-	No result           0 (0 %)
-Results for D
-	Correct             2795 (27.9 %)
-	Alternative         641 (6.41 %)
-	Mismatch (allele)   172 (1.72 %)
-	Mismatch (gene)     6379 (63.8 %)
-	No result           0 (0 %)
-Results for J
-	Correct             7402 (74 %)
-	Alternative         2449 (24.5 %)
-	Mismatch (allele)   11 (0.11 %)
-	Mismatch (gene)     125 (1.25 %)
-	No result           0 (0 %)
-```
+### Simple rearrangements
+
+## Postprocessing
 
 ### IgPostProcessor
 
