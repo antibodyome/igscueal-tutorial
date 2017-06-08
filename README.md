@@ -143,9 +143,9 @@ Results for D
 	Mismatch (gene)     201 (1.67 %)
 	No result           0 (0 %)
 Results for J
-	Correct             11323 (93.9 %)
-	Alternative         725 (6.01 %)
-	Mismatch (allele)   12 (0.0995 %)
+	Correct             12060 (100 %)
+	Alternative         0 (0 %)
+	Mismatch (allele)   0 (0 %)
 	Mismatch (gene)     0 (0 %)
 	No result           0 (0 %)
 ```
@@ -182,22 +182,22 @@ IgSCUEAL2:
 ```bash
 $ python3 python/TabulateSimulations.py -i results/simple_indels_10000_igscueal.tsv -r results/simple_indels_10000_igscueal.alt.tsv
 Results for V
-	Correct             9902 (99 %)
-	Alternative         93 (0.93 %)
+	Correct             9905 (99 %)
+	Alternative         90 (0.9 %)
 	Mismatch (allele)   5 (0.05 %)
 	Mismatch (gene)     0 (0 %)
 	No result           0 (0 %)
 Results for D
 	Correct             6597 (66 %)
-	Alternative         399 (3.99 %)
-	Mismatch (allele)   151 (1.51 %)
-	Mismatch (gene)     2853 (28.5 %)
+	Alternative         398 (3.98 %)
+	Mismatch (allele)   150 (1.5 %)
+	Mismatch (gene)     2855 (28.6 %)
 	No result           0 (0 %)
 Results for J
-	Correct             9374 (93.7 %)
-	Alternative         580 (5.8 %)
-	Mismatch (allele)   9 (0.09 %)
-	Mismatch (gene)     37 (0.37 %)
+	Correct             9385 (93.8 %)
+	Alternative         569 (5.69 %)
+	Mismatch (allele)   5 (0.05 %)
+	Mismatch (gene)     41 (0.41 %)
 	No result           0 (0 %)
 ```
 
@@ -232,22 +232,22 @@ IgSCUEAL2:
 ```bash
 $ python3 python/TabulateSimulations.py -i results/simple_indels_40_10000_igscueal.tsv -r results/simple_indels_40_10000_igscueal.alt.tsv
 Results for V
-	Correct             9044 (90.4 %)
-	Alternative         947 (9.47 %)
-	Mismatch (allele)   8 (0.08 %)
+	Correct             9048 (90.5 %)
+	Alternative         942 (9.42 %)
+	Mismatch (allele)   9 (0.09 %)
 	Mismatch (gene)     1 (0.01 %)
 	No result           0 (0 %)
 Results for D
-	Correct             4846 (48.5 %)
+	Correct             4848 (48.5 %)
 	Alternative         634 (6.34 %)
-	Mismatch (allele)   170 (1.7 %)
+	Mismatch (allele)   168 (1.68 %)
 	Mismatch (gene)     4350 (43.5 %)
 	No result           0 (0 %)
 Results for J
-	Correct             8312 (83.1 %)
-	Alternative         1627 (16.3 %)
-	Mismatch (allele)   15 (0.15 %)
-	Mismatch (gene)     46 (0.46 %)
+	Correct             8307 (83.1 %)
+	Alternative         1628 (16.3 %)
+	Mismatch (allele)   17 (0.17 %)
+	Mismatch (gene)     48 (0.48 %)
 	No result           0 (0 %)
 ```
 
@@ -283,22 +283,22 @@ IgSCUEAL2:
 ```bash
 $ python3 python/TabulateSimulations.py -i results/simple_indels_80_10000_igscueal.tsv -r results/simple_indels_80_10000_igscueal.alt.tsv
 Results for V
-	Correct             8062 (80.6 %)
-	Alternative         1920 (19.2 %)
-	Mismatch (allele)   15 (0.15 %)
-	Mismatch (gene)     3 (0.03 %)
+	Correct             8060 (80.6 %)
+	Alternative         1923 (19.2 %)
+	Mismatch (allele)   13 (0.13 %)
+	Mismatch (gene)     4 (0.04 %)
 	No result           0 (0 %)
 Results for D
-	Correct             2795 (27.9 %)
-	Alternative         641 (6.41 %)
-	Mismatch (allele)   172 (1.72 %)
+	Correct             2800 (28 %)
+	Alternative         644 (6.44 %)
+	Mismatch (allele)   173 (1.73 %)
 	Mismatch (gene)     6379 (63.8 %)
 	No result           0 (0 %)
 Results for J
-	Correct             7402 (74 %)
-	Alternative         2449 (24.5 %)
-	Mismatch (allele)   11 (0.11 %)
-	Mismatch (gene)     125 (1.25 %)
+	Correct             7415 (74.2 %)
+	Alternative         2460 (24.6 %)
+	Mismatch (allele)   10 (0.1 %)
+	Mismatch (gene)     111 (1.11 %)
 	No result           0 (0 %)
 ```
 
